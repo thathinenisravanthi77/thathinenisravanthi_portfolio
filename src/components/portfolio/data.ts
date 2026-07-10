@@ -1,7 +1,8 @@
 import {
-  SiC, SiPython, SiJavascript, SiHtml5, SiCss3, SiReact,
-  SiMysql, SiGit, SiGithub, SiVsco,
+  SiC, SiPython, SiJavascript, SiHtml5, SiCss, SiReact,
+  SiMysql, SiGit, SiGithub,
 } from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
 import { FaJava } from "react-icons/fa";
 import type { IconType } from "react-icons";
 
