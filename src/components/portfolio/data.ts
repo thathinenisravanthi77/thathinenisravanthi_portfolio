@@ -56,7 +56,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     title: "Web Development",
     skills: [
       { name: "HTML", level: 92, icon: SiHtml5, color: "#E44D26" },
-      { name: "CSS", level: 88, icon: SiCss3, color: "#2965F1" },
+      { name: "CSS", level: 88, icon: SiCss, color: "#2965F1" },
       { name: "JavaScript", level: 85, icon: SiJavascript, color: "#F7DF1E" },
       { name: "React", level: 82, icon: SiReact, color: "#61DAFB" },
     ],
@@ -70,7 +70,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     skills: [
       { name: "Git", level: 85, icon: SiGit, color: "#F05032" },
       { name: "GitHub", level: 88, icon: SiGithub, color: "#ffffff" },
-      { name: "VS Code", level: 90, icon: SiVsco, color: "#007ACC" },
+      { name: "VS Code", level: 90, icon: VscCode, color: "#007ACC" },
     ],
   },
   {
