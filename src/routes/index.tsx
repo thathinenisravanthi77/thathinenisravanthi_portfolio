@@ -623,20 +623,49 @@ function Achievements() {
 function Resume() {
   return (
     <Section id="resume" eyebrow="CV" title="My Resume" subtitle="One page. Everything you need.">
-      <GlassCard className="mx-auto max-w-3xl p-8 text-center">
-        <div className="mx-auto mb-6 grid h-56 max-w-md place-items-center rounded-xl border border-dashed border-border bg-muted/40">
-          <div className="text-muted-foreground">
-            <FiBookOpen size={40} className="mx-auto mb-2" />
-            <div className="text-sm">Resume preview</div>
+      <GlassCard className="mx-auto max-w-3xl overflow-hidden p-0 text-center">
+        <div className="relative overflow-hidden border-b border-border bg-muted/40">
+          <div className="relative h-[320px] overflow-hidden sm:h-[360px]">
+            <object
+              data={PROFILE.resume}
+              type="application/pdf"
+              className="h-full w-full scale-110 blur-[20px] grayscale-[0.1]"
+            >
+              <div className="grid h-full place-items-center p-8 text-center text-sm text-muted-foreground">
+                <div>
+                  <div className="mb-3 text-lg font-semibold">Resume preview unavailable</div>
+                  <div className="mb-6 max-w-sm">Your browser may not support embedded PDFs. Use the buttons below to open or download the resume.</div>
+                </div>
+              </div>
+            </object>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+              <div className="rounded-full border border-border/80 bg-background/70 px-4 py-2 text-sm font-semibold shadow-sm backdrop-blur">
+                Resume Preview
+              </div>
+              <p className="mt-3 max-w-xs text-sm text-muted-foreground">
+                A compact preview of the latest version is shown here.
+              </p>
+            </div>
           </div>
         </div>
-        <a
-          href={PROFILE.resume}
-          download
-          className="inline-flex items-center gap-2 rounded-full gradient-bg px-8 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
-        >
-          <FiDownload /> Download Resume
-        </a>
+        <div className="flex flex-col items-center gap-3 p-6 sm:flex-row sm:justify-center">
+          <a
+            href={PROFILE.resume}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:border-primary hover:text-primary"
+          >
+            <FiExternalLink /> View Full Resume
+          </a>
+          <a
+            href={PROFILE.resume}
+            download
+            className="inline-flex items-center justify-center gap-2 rounded-full gradient-bg px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
+          >
+            <FiDownload /> Download Resume
+          </a>
+        </div>
       </GlassCard>
     </Section>
   );
@@ -677,11 +706,26 @@ function Contact() {
             </GlassCard>
           ))}
           <GlassCard className="overflow-hidden w-full">
-            <div className="grid h-40 w-full place-items-center bg-gradient-to-br from-primary/20 to-accent/20 text-muted-foreground">
-              <div className="text-center">
-                <FiMapPin size={28} className="mx-auto mb-2" />
-                <div className="text-sm">Map placeholder</div>
-              </div>
+            <div className="relative h-64 w-full overflow-hidden rounded-3xl border border-border bg-background">
+              <iframe
+                title="Location map"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(PROFILE.location)}&output=embed`}
+                className="h-full w-full border-0"
+                loading="lazy"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+            </div>
+            <div className="space-y-2 p-4 text-sm text-muted-foreground">
+              <div className="font-medium text-foreground">Location</div>
+              <div>{PROFILE.location}</div>
+              <a
+                href={`https://www.google.com/maps/search/${encodeURIComponent(PROFILE.location)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-primary hover:underline"
+              >
+                <FiExternalLink size={14} /> View on Google Maps
+              </a>
             </div>
           </GlassCard>
         </div>
