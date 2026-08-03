@@ -13,7 +13,7 @@ export const PROFILE = {
     "I'm a passionate Computer Science Engineering student with a strong interest in full stack web development. I enjoy building responsive and user-friendly web applications, solving problems through code, and continuously learning modern technologies. My goal is to become a skilled Full Stack Web Developer and create impactful digital experiences that make a difference.",
   email: "thathinenisravanthi77@gmail.com",
   phone: "+91 7661959716",
-  location: "India",
+  location: "Badvel, Kadapa dist, AP",
   github: "https://github.com/thathinenisravanthi77",
   linkedin: "https://www.linkedin.com/in/sravanthi-thathineni",
   resume: "/resume.pdf",
