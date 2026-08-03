@@ -88,19 +88,7 @@ export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 export function SkillBar({ name, level }: { name: string; level: number }) {
   return (
     <div>
-      <div className="mb-1.5 flex justify-between text-sm">
-        <span className="font-medium text-foreground">{name}</span>
-        <span className="text-muted-foreground">{level}%</span>
-      </div>
-      <div className="h-2 overflow-hidden rounded-full bg-muted">
-        <motion.div
-          className="h-full rounded-full gradient-bg"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.1, ease: "easeOut" }}
-        />
-      </div>
+      <span className="font-medium text-foreground">{name}</span>
     </div>
   );
 }

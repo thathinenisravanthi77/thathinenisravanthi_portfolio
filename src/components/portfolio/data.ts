@@ -7,16 +7,19 @@ import { FaJava } from "react-icons/fa";
 import type { IconType } from "react-icons";
 
 export const PROFILE = {
-  name: "Your Name",
-  title: "B.Tech CSE Student | Aspiring Software Developer",
+  name: "Thathineni Sravanthi",
+  title: "B.Tech CSE Student | Aspiring Full Stack Web Developer",
   intro:
-    "I'm a Computer Science undergraduate passionate about crafting clean, performant software. I love turning ideas into elegant products — from web apps to algorithms.",
-  email: "your.email@example.com",
-  phone: "+91 00000 00000",
+    "I'm a passionate Computer Science Engineering student with a strong interest in full stack web development. I enjoy building responsive and user-friendly web applications, solving problems through code, and continuously learning modern technologies. My goal is to become a skilled Full Stack Web Developer and create impactful digital experiences that make a difference.",
+  email: "thathinenisravanthi77@gmail.com",
+  phone: "+91 7661959716",
   location: "India",
-  github: "https://github.com/yourhandle",
-  linkedin: "https://linkedin.com/in/yourhandle",
+  github: "https://github.com/thathinenisravanthi77",
+  linkedin: "https://www.linkedin.com/in/sravanthi-thathineni",
   resume: "/resume.pdf",
+  // Put your photo in `public/` (e.g. `public/me.jpg`) and update this path if needed
+  // Example: photo: "/me.jpg",
+  photo: "/profile.jpeg",
 };
 
 export const NAV = [
@@ -45,14 +48,6 @@ export interface SkillGroup { title: string; skills: Skill[] }
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
-    title: "Programming",
-    skills: [
-      { name: "C", level: 85, icon: SiC, color: "#5C6BC0" },
-      { name: "Java", level: 80, icon: FaJava, color: "#f89820" },
-      { name: "Python", level: 82, icon: SiPython, color: "#3776AB" },
-    ],
-  },
-  {
     title: "Web Development",
     skills: [
       { name: "HTML", level: 92, icon: SiHtml5, color: "#E44D26" },
@@ -62,8 +57,12 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ],
   },
   {
-    title: "Database",
-    skills: [{ name: "SQL", level: 80, icon: SiMysql, color: "#00758F" }],
+    title: "Programming",
+    skills: [
+      { name: "C", level: 85, icon: SiC, color: "#5C6BC0" },
+      { name: "Java", level: 80, icon: FaJava, color: "#f89820" },
+      { name: "Python", level: 82, icon: SiPython, color: "#3776AB" },
+    ],
   },
   {
     title: "Tools",
@@ -74,13 +73,20 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ],
   },
   {
+    title: "Database",
+    skills: [
+      { name: "SQL", level: 80, icon: SiMysql, color: "#00758F" },
+      { name: "SQLite", level: 80, icon: SiMysql, color: "#00758F" },
+    ],
+  },
+  {
     title: "Core Subjects",
     skills: [
-      { name: "Data Structures", level: 85 },
+      { name: "DSA", level: 85 },
       { name: "Algorithms", level: 82 },
       { name: "DBMS", level: 80 },
-      { name: "Operating Systems", level: 78 },
-      { name: "Computer Networks", level: 76 },
+      { name: "OS", level: 78 },
+      { name: "SE", level: 76 },
       { name: "OOP", level: 88 },
     ],
   },
@@ -90,7 +96,7 @@ export interface Project {
   title: string;
   description: string;
   tech: string[];
-  features: string[];
+  features?: string[];
   category: string[];
   github: string;
   demo: string;
@@ -99,101 +105,66 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    title: "Realtime Chat App",
-    description: "A minimal real-time messaging app with rooms, typing indicators and dark mode.",
-    tech: ["React", "TypeScript", "WebSockets"],
-    features: ["Live typing", "Auth", "Dark mode"],
-    category: ["React"],
-    github: "#",
-    demo: "#",
-    gradient: "from-indigo-500 to-cyan-400",
-  },
-  {
-    title: "Algorithm Visualizer",
-    description: "Interactive visualizer for sorting and graph algorithms with step controls.",
-    tech: ["React", "Canvas", "TypeScript"],
-    features: ["10+ algorithms", "Speed control", "Step mode"],
-    category: ["React"],
-    github: "#",
+    title: "My Portfolio",
+    description: "Developed a reusable UI component system and single-page portfolio using TypeScript, React and Vite.",
+    tech: ["React", "TypeScript", "Canvas"],
+    category: ["React", "Vite"],
+    github: "https://github.com/thathinenisravanthi77/thathinenisravanthi_portfolio",
     demo: "#",
     gradient: "from-fuchsia-500 to-pink-500",
   },
   {
     title: "Student Result Portal",
-    description: "Backend service and dashboard for managing student results with role-based access.",
-    tech: ["Java", "SQL", "Spring"],
-    features: ["RBAC", "Reports", "CSV export"],
-    category: ["Java", "SQL"],
-    github: "#",
-    demo: "#",
+    description: "Result Generator — Interactive student results dashboard that calculates grades, visualizes performance, and exports reports.",
+    tech: ["React", "TypeScript", "Vite"],
+    category: ["React", "TypeScript"],
+    github: "https://github.com/thathinenisravanthi77/result-generator",
+    demo: "https://result-generator-app.vercel.app/",
     gradient: "from-amber-400 to-rose-500",
-  },
-  {
-    title: "AI Study Assistant",
-    description: "Python-based assistant that summarizes notes and generates practice questions.",
-    tech: ["Python", "FastAPI", "LLM"],
-    features: ["Summaries", "MCQ gen", "PDF import"],
-    category: ["Python"],
-    github: "#",
-    demo: "#",
-    gradient: "from-emerald-400 to-teal-500",
-  },
-  {
-    title: "Bank Management System",
-    description: "Console-based system in C simulating accounts, transactions and interest.",
-    tech: ["C", "File I/O"],
-    features: ["Accounts", "Transactions", "Reports"],
-    category: ["C"],
-    github: "#",
-    demo: "#",
-    gradient: "from-sky-500 to-blue-600",
-  },
-  {
-    title: "Personal Portfolio",
-    description: "This very portfolio — animated, responsive and built with love.",
-    tech: ["React", "Tailwind", "Framer Motion"],
-    features: ["Animations", "Dark mode", "SEO"],
-    category: ["React"],
-    github: "#",
-    demo: "#",
-    gradient: "from-violet-500 to-indigo-500",
   },
 ];
 
 export const PROJECT_FILTERS = ["All", "React", "Python", "Java", "C", "SQL"];
 
 export const EXPERIENCE = [
-  { role: "Software Development Intern", org: "Company Name", period: "2025", desc: "Contributed to production features, wrote tests, and shipped improvements." },
-  { role: "Technical Event Coordinator", org: "College Tech Fest", period: "2024", desc: "Led a team organizing coding contests with 300+ participants." },
-  { role: "Workshop — Full Stack Dev", org: "Seminar", period: "2024", desc: "Attended and demoed React + Node projects to peers." },
-  { role: "Class Representative", org: "CSE Department", period: "2023", desc: "Bridged communication between faculty and students." },
+  { role: "Web Development Intern", org: "Nxtgensec PVT LTD", period: "2025", desc: "Contributed to development features, work with AI, and improved Knowledge." },
+  { role: "College Event Coordinator", org: "College Dept Fest", period: "2025", desc: "Led a team organizing with 300+ participants." },
+  { role: "Workshops ", org: "Seminar", period: "2025", desc: "Attended and demoed web based projects to peers." },
+  { role: "Class Representative", org: "CSE Department", period: "2025", desc: "Bridged communication between faculty and students." },
 ];
 
 export const EDUCATION = [
-  { title: "B.Tech, Computer Science Engineering", org: "Your College Name", period: "2022 — 2026", detail: "CGPA: 8.5 / 10" },
-  { title: "Intermediate (12th)", org: "Your Junior College", period: "2020 — 2022", detail: "Percentage: 92%" },
-  { title: "SSC (10th)", org: "Your School", period: "2020", detail: "Percentage: 95%" },
+  { title: "B.Tech, Computer Science Engineering", org: "Madanapalle Institute of Technology and Sciences", period: "2024 — 2028", detail: "Current CGPA: 9.59 / 10" },
+  { title: "Intermediate (12th)", org: "Dr.B.J.S.R. Junior College", period: "2022 — 2024", detail: "Percentage: 98.1%" },
+  { title: "SSC (10th)", org: "Rathnam English Medium High School", period: "2022", detail: "Percentage: 95%" },
 ];
 
 export const CERTIFICATIONS = [
-  { name: "Full Stack Web Development", issuer: "Coursera", date: "2024", link: "#" },
-  { name: "Python for Everybody", issuer: "University of Michigan", date: "2024", link: "#" },
-  { name: "Data Structures & Algorithms", issuer: "NPTEL", date: "2023", link: "#" },
-  { name: "SQL Advanced", issuer: "HackerRank", date: "2024", link: "#" },
+  { name: "Introduction to Databases", issuer: "Nxtwave", date: "2026", link: "https://www.linkedin.com/posts/activity-7434271205609873408-IK94?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFe24gkBNSEaQA4bQrZCDlXr8TW4yjxRZlM" },
+  { name: "Build your own responsive website", issuer: "Nxtwave", date: "2025", link: "https://www.linkedin.com/posts/activity-7414649899494985728-tB-p?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFe24gkBNSEaQA4bQrZCDlXr8TW4yjxRZlM" },
+  { name: "Build your own static website", issuer: "Nxtwave", date: "2025", link: "https://www.linkedin.com/posts/sravanthi-thathineni_course-certificate-ugcPost-7401671847836237825-XYdQ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFe24gkBNSEaQA4bQrZCDlXr8TW4yjxRZlM" },
+  { name: "Product Engineering and Design Thinking", issuer: "NPTEL", date: "2026", link: "https://www.linkedin.com/posts/activity-7453644844272373760-03vH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFe24gkBNSEaQA4bQrZCDlXr8TW4yjxRZlM" },
+  { name: "Introduction to Java", issuer: "Sololearn", date: "2025", link: "https://www.linkedin.com/posts/activity-7390417982734327808-f5zN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFe24gkBNSEaQA4bQrZCDlXr8TW4yjxRZlM" },
+  { name: "Solution Architecture Job Simulation", issuer: "AWS", date: "2025", link: "https://www.linkedin.com/posts/activity-7351489190401871872-577q?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFe24gkBNSEaQA4bQrZCDlXr8TW4yjxRZlM" },
+  { name: "Data Structures in C", issuer: "GreatLearning", date: "2025", link: "https://www.linkedin.com/posts/activity-7330072291579514882-OBl8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFe24gkBNSEaQA4bQrZCDlXr8TW4yjxRZlM" },
+  { name: "Introduction to Python", issuer: "Sololearn", date: "2025", link: "https://www.linkedin.com/posts/activity-7343297897511170049-69EA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFe24gkBNSEaQA4bQrZCDlXr8TW4yjxRZlM" },
+  
+  
+  
 ];
 
 export const ACHIEVEMENTS = [
-  { title: "Academic Excellence Award", desc: "Top 5% of the CSE batch." },
-  { title: "8.5+ CGPA Consistently", desc: "Maintained across all semesters." },
-  { title: "Merit Scholarship", desc: "Awarded for academic performance." },
-  { title: "Event Coordinator", desc: "Led technical fest with 300+ attendees." },
-  { title: "10+ Online Certifications", desc: "Across development and CS core." },
-  { title: "Open Source Contributor", desc: "Merged PRs on community projects." },
+  { title: "Academic Excellence", desc: "Top 5% of the CSE batch." },
+  { title: "9.5+ CGPA Consistently", desc: "Maintained across all semesters." },
+  { title: "Pragathi Merit Scholarship", desc: "Awarded for academic performance in intermediate." },
+  { title: "Event Coordinator", desc: "Led Department fest with 300+ attendees." },
+  { title: "10+ Online Certifications", desc: "Across development and core subjects." },
+  { title: "NPTEL Excellence", desc: "Above 80% in every course." },
 ];
 
 export const STATS = [
-  { value: 15, suffix: "+", label: "Projects Built" },
+  { value: 2, suffix: "+", label: "Projects Built" },
+  { value: 100, suffix: "+", label: "DSA Problems" },
   { value: 10, suffix: "+", label: "Certifications" },
-  { value: 500, suffix: "+", label: "DSA Problems" },
-  { value: 3, suffix: "+", label: "Years Coding" },
+  { value: 2, suffix: "+", label: "Years Coding" },
 ];

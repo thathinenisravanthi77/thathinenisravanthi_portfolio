@@ -120,7 +120,7 @@ function Nav({ active, dark, toggle }: { active: string; dark: boolean; toggle: 
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
         <button onClick={() => go("home")} className="font-display text-lg font-bold">
-          <span className="gradient-text">&lt;YourName /&gt;</span>
+          <span className="gradient-text">My Portfolio</span>
         </button>
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((n) => (
@@ -167,7 +167,7 @@ function Nav({ active, dark, toggle }: { active: string; dark: boolean; toggle: 
             exit={{ opacity: 0, y: -10 }}
             className="glass mx-6 mt-3 rounded-2xl p-3 lg:hidden"
           >
-            <div className="grid grid-cols-2 gap-1">
+            <div className="grid grid-cols-2 gap-1 mx-2">
               {NAV.map((n) => (
                 <button
                   key={n.id}
@@ -189,7 +189,7 @@ function Nav({ active, dark, toggle }: { active: string; dark: boolean; toggle: 
 
 function Hero() {
   return (
-    <section id="home" className="relative flex min-h-screen items-center overflow-hidden pt-24">
+    <section id="home" className="relative flex min-h-screen items-center overflow-hidden pt-24 lg:pt-20 xl:pt-16">
       <div className="absolute inset-0 hero-bg" />
       <div className="absolute inset-0 grid-bg opacity-40" />
       <div className="absolute -left-24 top-40 h-72 w-72 rounded-full bg-primary/30 blur-3xl animate-blob" />
@@ -208,16 +208,16 @@ function Hero() {
         </motion.div>
       ))}
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1fr_auto]">
+      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[minmax(0,1fr)_auto]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="min-w-0"
+          className="min-w-0 max-w-3xl"
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
             <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-            Available for Internships
+            Available for Internships and Hiring
           </span>
           <h1 className="mt-6 text-5xl font-black leading-[1.05] sm:text-6xl lg:text-7xl">
             Hi, I'm <span className="gradient-text">{PROFILE.name}</span>
@@ -228,11 +228,11 @@ function Hero() {
           </div>
           <p className="mt-6 max-w-xl text-base text-muted-foreground">{PROFILE.intro}</p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+                    <div className="mt-4 flex flex-wrap items-center gap-3">
             <a
               href={PROFILE.resume}
               download
-              className="group inline-flex items-center gap-2 rounded-full gradient-bg px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
+              className="group inline-flex min-w-[12rem] items-center justify-center gap-2 rounded-full gradient-bg px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
             >
               <FiDownload /> Download Resume
             </a>
@@ -250,7 +250,7 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-8 flex items-center gap-4 text-muted-foreground">
+          <div className="mt-8 flex flex-wrap items-center gap-4 text-muted-foreground">
             {[
               { icon: FiGithub, href: PROFILE.github },
               { icon: FiLinkedin, href: PROFILE.linkedin },
@@ -273,17 +273,26 @@ function Hero() {
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mx-auto"
+          className="relative mx-auto w-full max-w-[24rem] mb-8 lg:mb-0"
         >
           <div className="absolute -inset-6 rounded-full gradient-bg opacity-40 blur-2xl" />
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-primary/40 bg-card shadow-glow sm:h-80 sm:w-80"
+            className="relative mx-auto aspect-square w-full max-w-[20rem] overflow-hidden rounded-full border-4 border-primary/40 bg-card shadow-glow sm:max-w-[24rem]"
           >
-            <div className="grid h-full w-full place-items-center bg-gradient-to-br from-primary/30 to-accent/30 text-6xl font-black text-foreground/60">
-              {PROFILE.name.split(" ").map((w) => w[0]).join("")}
-            </div>
+            {PROFILE.photo ? (
+              <img
+                src={PROFILE.photo}
+                alt={PROFILE.name}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <div className="grid h-full w-full place-items-center bg-gradient-to-br from-primary/30 to-accent/30 text-6xl font-black text-foreground/60">
+                {PROFILE.name.split(" ").map((w) => w[0]).join("")}
+              </div>
+            )}
           </motion.div>
           <motion.div
             animate={{ rotate: 360 }}
@@ -298,37 +307,38 @@ function Hero() {
 
 function About() {
   const timeline = [
-    { year: "2022", text: "Started B.Tech CSE — got hooked on programming." },
-    { year: "2023", text: "Explored web development and built first React apps." },
-    { year: "2024", text: "Deep-dived DSA, contributed to open source." },
-    { year: "2025", text: "Building projects and preparing for SDE internships." },
+    { year: "2024", text: "Started B.Tech CSE — got hooked on programming." },
+    { year: "2024", text: "Explored web development and learned basic technologies." },
+    { year: "2025", text: "Strengthened Programming Skills and dived into Databases." },
+    { year: "2026", text: "Currently learning skills for full-stack development from Nxtwave Platform." },
+
   ];
   return (
     <Section id="about" eyebrow="About" title="Who I Am" subtitle="A short story of curiosity, code and craft.">
       <div className="grid gap-8 lg:grid-cols-2">
         <GlassCard className="p-8">
-          <h3 className="text-2xl font-bold">Aspiring Software Developer</h3>
+          <h3 className="text-2xl font-bold">Aspiring Full Stack Web Developer</h3>
           <p className="mt-4 text-muted-foreground">
             I'm a Computer Science undergraduate driven by curiosity and a love for problem-solving.
             I enjoy building products end-to-end — from clean UIs to well-modeled data. My goal is to
-            join a team where I can learn from strong engineers and ship things that matter.
+            join a team where I can learn from strong engineers and get some knowledge.
           </p>
           <div className="mt-6 grid grid-cols-2 gap-4 text-sm">
             <div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Languages</div>
-              <div className="mt-1 font-medium">English, Hindi</div>
+              <div className="mt-1 font-medium">English, Telugu, Hindi</div>
             </div>
             <div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Hobbies</div>
-              <div className="mt-1 font-medium">Coding, Chess, Reading</div>
+              <div className="mt-1 font-medium">Learning, Improving Problem Solving Skills, Creating Digital Content</div>
             </div>
             <div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Strengths</div>
-              <div className="mt-1 font-medium">Quick learner, curious, teamwork</div>
+              <div className="mt-1 font-medium">Quick learner, Self-motivated, Team player, Adaptability, Consistency</div>
             </div>
             <div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">Currently Learning</div>
-              <div className="mt-1 font-medium">System Design, Next.js</div>
+              <div className="mt-1 font-medium">Java Script, React, Node.js</div>
             </div>
           </div>
         </GlassCard>
@@ -385,23 +395,22 @@ function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: gi * 0.05 }}
+            className={g.title === "Web Development" ? "md:col-span-2" : ""}
           >
-            <GlassCard className="h-full p-6">
-              <h3 className="mb-5 text-lg font-bold text-foreground">{g.title}</h3>
-              <div className="space-y-4">
+            <GlassCard className="h-full p-4">
+              <h3 className="mb-4 text-lg font-bold text-foreground">{g.title}</h3>
+              <div className={`grid gap-2 ${g.title === "Web Development" ? "sm:grid-cols-4 grid-cols-2" : "grid-cols-2 sm:grid-cols-3"}`}>
                 {g.skills.map((s) => (
-                  <div key={s.name} className="flex items-center gap-3">
+                  <div key={s.name} className="flex flex-col items-center justify-center p-2 rounded-lg border border-border/50 hover:border-border transition-colors">
                     {s.icon && (
                       <div
-                        className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-muted"
+                        className="grid h-12 w-12 place-items-center rounded-lg bg-muted mb-2"
                         style={{ color: s.color }}
                       >
-                        <s.icon size={18} />
+                        <s.icon size={28} />
                       </div>
                     )}
-                    <div className="flex-1 min-w-0">
-                      <SkillBar name={s.name} level={s.level} />
-                    </div>
+                    <span className="text-sm font-medium text-foreground text-center">{s.name}</span>
                   </div>
                 ))}
               </div>
@@ -434,7 +443,7 @@ function Projects() {
         ))}
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {filtered.map((p, i) => (
             <motion.div
@@ -470,13 +479,15 @@ function Projects() {
                         </span>
                       ))}
                     </div>
-                    <ul className="mt-3 space-y-1 text-xs text-muted-foreground">
-                      {p.features.map((f) => (
-                        <li key={f} className="flex items-center gap-1.5">
-                          <span className="h-1 w-1 rounded-full bg-primary" />{f}
-                        </li>
-                      ))}
-                    </ul>
+                    {p.features && p.features.length > 0 && (
+                      <ul className="mt-3 space-y-1 text-xs text-muted-foreground">
+                        {p.features.map((f) => (
+                          <li key={f} className="flex items-center gap-1.5">
+                            <span className="h-1 w-1 rounded-full bg-primary" />{f}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     <div className="mt-4 flex gap-2">
                       <a
                         href={p.github}
@@ -504,7 +515,7 @@ function Projects() {
 
 function Timeline({ items }: { items: { title: string; org: string; period: string; detail?: string; desc?: string }[] }) {
   return (
-    <div className="relative mx-auto max-w-3xl">
+    <div className="relative mx-auto max-w-3xl px-4">
       <div className="absolute left-4 top-0 h-full w-px bg-border md:left-1/2" />
       {items.map((it, i) => (
         <motion.div
@@ -513,10 +524,10 @@ function Timeline({ items }: { items: { title: string; org: string; period: stri
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.08 }}
-          className={`relative mb-8 flex md:justify-between ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+          className={`relative mb-8 flex flex-col items-start pl-10 md:pl-0 md:justify-between ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
         >
           <div className="absolute left-4 top-4 h-3 w-3 -translate-x-1/2 rounded-full gradient-bg shadow-glow md:left-1/2" />
-          <div className="ml-10 w-full md:ml-0 md:w-[45%]">
+          <div className="w-full md:w-[45%]">
             <GlassCard className="p-5">
               <div className="text-xs font-mono text-primary">{it.period}</div>
               <div className="mt-1 text-lg font-bold">{it.title}</div>
@@ -642,8 +653,8 @@ function Contact() {
   };
   return (
     <Section id="contact" eyebrow="Contact" title="Let's Connect" subtitle="Have a role or a project? Drop me a message.">
-      <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-        <div className="space-y-4">
+      <div className="grid gap-6 lg:grid-cols-2 items-start">
+        <div className="grid gap-4 w-full">
           {[
             { icon: FiMail, label: "Email", value: PROFILE.email, href: `mailto:${PROFILE.email}` },
             { icon: FiPhone, label: "Phone", value: PROFILE.phone, href: `tel:${PROFILE.phone}` },
@@ -651,22 +662,22 @@ function Contact() {
             { icon: FiGithub, label: "GitHub", value: PROFILE.github, href: PROFILE.github },
             { icon: FiLinkedin, label: "LinkedIn", value: PROFILE.linkedin, href: PROFILE.linkedin },
           ].map((c, i) => (
-            <GlassCard key={i} className="flex items-center gap-4 p-4 transition-all hover:border-primary/40">
-              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl gradient-bg text-primary-foreground">
+            <GlassCard key={i} className="flex flex-col gap-4 rounded-3xl p-4 transition-all hover:border-primary/40 sm:flex-row sm:items-center">
+              <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl gradient-bg text-primary-foreground">
                 <c.icon size={18} />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="text-xs uppercase tracking-wider text-muted-foreground">{c.label}</div>
                 {c.href ? (
-                  <a href={c.href} className="truncate text-sm font-medium text-foreground hover:text-primary block">{c.value}</a>
+                  <a href={c.href} className="break-words text-sm font-medium text-foreground hover:text-primary block">{c.value}</a>
                 ) : (
-                  <div className="truncate text-sm font-medium">{c.value}</div>
+                  <div className="break-words text-sm font-medium">{c.value}</div>
                 )}
               </div>
             </GlassCard>
           ))}
-          <GlassCard className="overflow-hidden">
-            <div className="grid h-40 place-items-center bg-gradient-to-br from-primary/20 to-accent/20 text-muted-foreground">
+          <GlassCard className="overflow-hidden w-full">
+            <div className="grid h-40 w-full place-items-center bg-gradient-to-br from-primary/20 to-accent/20 text-muted-foreground">
               <div className="text-center">
                 <FiMapPin size={28} className="mx-auto mb-2" />
                 <div className="text-sm">Map placeholder</div>
@@ -675,7 +686,7 @@ function Contact() {
           </GlassCard>
         </div>
 
-        <GlassCard className="p-6 sm:p-8">
+        <GlassCard className="w-full p-6 sm:p-8">
           <form onSubmit={submit} className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Name" value={form.name} onChange={(v) => setForm({ ...form, name: v })} required />
@@ -741,11 +752,11 @@ function Footer() {
   return (
     <footer className="relative border-t border-border bg-card/30 py-12">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
           <div>
-            <div className="font-display text-lg font-bold gradient-text">&lt;{PROFILE.name} /&gt;</div>
+            <div className="font-display text-lg font-bold gradient-text">{PROFILE.name}</div>
             <p className="mt-2 max-w-xs text-sm text-muted-foreground">
-              Aspiring software developer. Turning coffee into code, one commit at a time.
+              Aspiring full stack web developer. Turning coffee into code, one commit at a time.
             </p>
           </div>
           <div>
@@ -772,8 +783,8 @@ function Footer() {
           </div>
         </div>
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row">
-          <div>© {new Date().getFullYear()} {PROFILE.name}. All rights reserved.</div>
-          <div>Designed & Developed by <span className="text-primary">{PROFILE.name}</span></div>
+          <div className="text-center sm:text-left">© {new Date().getFullYear()} {PROFILE.name}. All rights reserved.</div>
+          <div className="text-center sm:text-right">Designed & Developed by <span className="text-primary">{PROFILE.name}</span></div>
         </div>
       </div>
     </footer>
@@ -814,7 +825,7 @@ function Portfolio() {
     return () => clearTimeout(t);
   }, []);
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
       <Loader done={loaded} />
       <ProgressBar />
       <MouseGlow />
