@@ -660,7 +660,7 @@ function Resume() {
           </a>
           <a
             href={PROFILE.resume}
-            download
+            download="resume.pdf"
             className="inline-flex items-center justify-center gap-2 rounded-full gradient-bg px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
           >
             <FiDownload /> Download Resume

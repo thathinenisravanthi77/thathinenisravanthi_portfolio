@@ -16,7 +16,7 @@ export const PROFILE = {
   location: "Badvel, Kadapa dist, AP",
   github: "https://github.com/thathinenisravanthi77",
   linkedin: "https://www.linkedin.com/in/sravanthi-thathineni",
-  resume: "/resume.pdf",
+  resume: "/resume.pdf?v=2",
   // Put your photo in `public/` (e.g. `public/me.jpg`) and update this path if needed
   // Example: photo: "/me.jpg",
   photo: "/profile.jpeg",
